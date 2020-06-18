@@ -1,12 +1,22 @@
 # Django CMS
 
-## Feature of CMS
-#### 1). Multi-lingual Support
-#### 2). Login System
-#### 3). User Master
-#### 4). Permission Management
-#### 5). State and Country Master
-#### 6). 403 Permission Denied Page
+## Features of CMS
+* Multi-lingual Support
+* Login System
+* User Master
+* Permission Management
+* State and Country Master
+* 403 Permission Denied Page
 
-## [Demo Video :Link](https://drive.google.com/open?id=1HMP0J7Cc1eVJgUE8Y4I-xI0gVeEcmyC5)
+[Demo Video:](https://drive.google.com/open?id=1HMP0J7Cc1eVJgUE8Y4I-xI0gVeEcmyC5)
+
+## Git setup
+Install [Git](https://git-scm.com/)
+
+Go to directory you want to work on
+
+Open Git bash/command-line there and enter:
+
+    https://github.com/singhnk288/Django-CMS.git
+    
 
