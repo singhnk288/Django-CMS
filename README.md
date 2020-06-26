@@ -55,4 +55,37 @@ We Use djongo engine: NAME,HOST,USER,PASSWORD, please change according to your d
         
         pip install djongo
         
-## 
+## DB Migration 
+
+        python manage.py migrate
+        
+## Create Super-User
+
+        python manage.py createsuperuser
+        
+Enter Username:
+Enter Password:
+Enter Email:
+
+## Run Django Project
+
+        python manage.py runserver
+        
+        
+### Screenshots
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/language_add.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/add_country.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/edit_permission.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_country.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_group.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_state_language1.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_state_language2.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_user.PNG)
