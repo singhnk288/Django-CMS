@@ -1,0 +1,320 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-16 15:32+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\authenticate\add_group.html:12
+#: .\templates\authenticate\add_user.html:13
+#: .\templates\authenticate\edit_permission.html:12
+#: .\templates\elements\sidebar.html:66
+msgid "Group"
+msgstr ""
+
+#: .\templates\authenticate\add_group.html:14
+#: .\templates\authenticate\edit_permission.html:14
+msgid "Enter group"
+msgstr ""
+
+#: .\templates\authenticate\add_group.html:19
+#: .\templates\authenticate\add_user.html:74
+#: .\templates\authenticate\edit_permission.html:32
+#: .\templates\master\add_country.html:31
+#: .\templates\master\add_language.html:26 .\templates\master\add_state.html:50
+msgid "Save"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:14
+msgid "Select a Group"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:27
+msgid "First Name"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:29
+msgid "Enter First Name"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:34
+msgid "Last Name"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:36
+msgid "Enter Last Name"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:43
+msgid "Username"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:45
+msgid "Enter username"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:50
+msgid "Email"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:52
+msgid "Enter Email"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:59
+msgid "Password"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:61
+msgid "Password field not mandatory fill only if you want to update password"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:61
+msgid "Enter Password"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:66
+msgid "Confirm Password"
+msgstr ""
+
+#: .\templates\authenticate\add_user.html:68
+msgid "Enter Confirm Password"
+msgstr ""
+
+#: .\templates\authenticate\user.html:13 .\templates\authenticate\user.html:14
+#: .\templates\authenticate\view_group.html:13
+#: .\templates\authenticate\view_group.html:14
+#: .\templates\master\view_country.html:14
+#: .\templates\master\view_country.html:15
+#: .\templates\master\view_language.html:13
+#: .\templates\master\view_language.html:14
+#: .\templates\master\view_state.html:14 .\templates\master\view_state.html:15
+msgid "Search"
+msgstr ""
+
+#: .\templates\authenticate\user.html:18
+#: .\templates\authenticate\view_group.html:18
+#: .\templates\master\view_country.html:19
+#: .\templates\master\view_language.html:18
+#: .\templates\master\view_state.html:19
+msgid "Filter"
+msgstr ""
+
+#: .\templates\authenticate\user.html:19
+#: .\templates\authenticate\view_group.html:19
+#: .\templates\master\view_country.html:20
+#: .\templates\master\view_language.html:19
+#: .\templates\master\view_state.html:20
+msgid "Reset"
+msgstr ""
+
+#: .\templates\authenticate\user.html:44
+#: .\templates\authenticate\view_group.html:38
+#: .\templates\master\view_country.html:41
+#: .\templates\master\view_language.html:39
+#: .\templates\master\view_state.html:42
+msgid "Actions"
+msgstr ""
+
+#: .\templates\authenticate\user.html:58 .\templates\authenticate\user.html:74
+#: .\templates\authenticate\view_group.html:48
+#: .\templates\authenticate\view_group.html:63
+#: .\templates\master\view_country.html:54
+#: .\templates\master\view_country.html:69
+#: .\templates\master\view_language.html:50
+#: .\templates\master\view_language.html:65
+#: .\templates\master\view_state.html:56 .\templates\master\view_state.html:71
+msgid "Enable"
+msgstr ""
+
+#: .\templates\authenticate\user.html:60 .\templates\authenticate\user.html:72
+#: .\templates\authenticate\view_group.html:50
+#: .\templates\authenticate\view_group.html:61
+#: .\templates\master\view_country.html:56
+#: .\templates\master\view_country.html:67
+#: .\templates\master\view_language.html:52
+#: .\templates\master\view_language.html:63
+#: .\templates\master\view_state.html:58 .\templates\master\view_state.html:69
+msgid "Disable"
+msgstr ""
+
+#: .\templates\authenticate\user.html:70
+#: .\templates\authenticate\view_group.html:59
+#: .\templates\master\view_country.html:65
+#: .\templates\master\view_language.html:61
+#: .\templates\master\view_state.html:67
+msgid "Edit"
+msgstr ""
+
+#: .\templates\authenticate\user.html:84
+#: .\templates\master\view_country.html:79
+#: .\templates\master\view_language.html:75
+#: .\templates\master\view_state.html:81
+msgid "No Record Found"
+msgstr ""
+
+#: .\templates\authenticate\view_group.html:33
+#: .\templates\master\view_country.html:34
+#: .\templates\master\view_language.html:33
+#: .\templates\master\view_state.html:34
+msgid "S.No"
+msgstr ""
+
+#: .\templates\authenticate\view_group.html:65
+msgid "Edit Permission"
+msgstr ""
+
+#: .\templates\elements\header.html:12 .\templates\elements\header.html:18
+msgid "Notification"
+msgstr ""
+
+#: .\templates\elements\header.html:102
+msgid "My profile"
+msgstr ""
+
+#: .\templates\elements\header.html:104
+msgid "Account"
+msgstr ""
+
+#: .\templates\elements\header.html:105
+msgid "Logout"
+msgstr ""
+
+#: .\templates\elements\pagination.html:6
+msgid "Showing"
+msgstr ""
+
+#: .\templates\elements\pagination.html:6
+msgid "of"
+msgstr ""
+
+#: .\templates\elements\pagination.html:6
+msgid "entries"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:44
+msgid "Dashboard"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:46
+msgid "Masters"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:49 .\templates\master\add_language.html:12
+msgid "Language"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:52 .\templates\master\add_country.html:19
+msgid "Country"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:54 .\templates\master\add_state.html:38
+msgid "State"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:61
+msgid "Changelog"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:64
+msgid "Authenticate"
+msgstr ""
+
+#: .\templates\elements\sidebar.html:67
+msgid "User"
+msgstr ""
+
+#: .\templates\layouts\default.html:6
+msgid "Welcome to RecallInfo"
+msgstr ""
+
+#: .\templates\master\add_language.html:14
+msgid "Enter Language"
+msgstr ""
+
+#: .\templates\master\add_language.html:19
+msgid "Language Code"
+msgstr ""
+
+#: .\templates\master\add_language.html:21
+msgid "Enter Language Code"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:45
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:47
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:31
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:102
+#: .\venv\Lib\site-packages\django\forms\fields.py:658
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:154
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:165
+msgid "Enter a valid email address."
+msgstr ""
+
+msgid "City"
+msgstr "City"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Last Login"
+msgstr "Last Login"
+
+msgid "FILL_COUNTRY_WITH_ALL_AVAILBLE_LANGUAGE"
+msgstr "FILL COUNTRY WITH ALL AVAILBLE LANGUAGE"
+
+msgid "FILL_STATE_WITH_ALL_AVAILBLE_LANGUAGE"
+msgstr "FILL STATE WITH ALL AVAILBLE LANGUAGE"
+
+msgid "Select_any_country"
+msgstr "Select any country"

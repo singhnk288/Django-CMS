@@ -1,0 +1,39 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+<!-- Content area -->
+<div class="content">   
+  <div class="row background-padding-filter-margin before-form-border">            
+        <form method="POST" action="{% url 'Edit_Permission' group_obj.id %}" id="form-validate">
+            {% csrf_token %}
+            <div class="col-md-12 background-padding-filter"> 
+                <div class="col-md-12">          
+                    <div class="form-group">
+                        <label for="group-label">{% trans "Group" %} <span class="red-star">*</span></label>
+                        <input type="text" class="form-control" id="group" name="group" readonly value="{% if group %}{{ group }}{% elif group_obj.name %}{{ group_obj.name }}{% endif %}"
+                        data-rule-requiredMin2Max20="true" aria-describedby="groupHelp" placeholder="{% trans "Enter group" %}">        
+                    </div>
+                </div>
+                <div class="col-md-12">	                                            				                								
+                        <select multiple="multiple" class="form-control listbox-no-selection" name="permissions">
+                            {% for id,permission in permissions.items %}                            
+                                <option value="{{ id }}" {% if id in group_permission_id %} selected="selected" {% endif %}>
+                                {% comment %} App_Label - Model - Permission {% endcomment %}
+                                {% comment %} {{ permission.app_label|title }} -  {% endcomment %}
+                                {{permission.model|title}} - {{permission.name|title}}
+                                </option>
+                            {% endfor %}                            
+                        </select>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn bg-teal-400 btn-labeled float-right">
+                        <b><i class="icon-reading"></i></b> {% trans "Save" %}
+                    </button> 
+                </div>
+            </div>
+        </form>       
+   </div>
+</div>
+<!-- /content area -->
+{% endblock content %}
+

@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-16 15:32+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\cms_master\views.py:30 .\cms_master\views.py:125 .\cms_master\views.py:135
+#: .\cms_master\views.py:209 .\cms_master\views.py:311
+#: .\cms_master\views.py:321 .\cms_master\views.py:399
+#: .\cms_master\views.py:481 .\cms_master\views.py:491
+msgid "Home"
+msgstr "Home"
+
+#: .\cms_master\views.py:31 .\cms_master\views.py:126 .\cms_master\views.py:136
+msgid "Country"
+msgstr "Country"
+
+#: .\cms_master\views.py:33 .\cms_master\views.py:212
+msgid "Master_Country_Title"
+msgstr "Master : Country"
+
+#: .\cms_master\views.py:37 .\cms_master\views.py:137
+msgid "Add_Country"
+msgstr "Add Country"
+
+#: .\cms_master\views.py:95
+msgid "View_Country"
+msgstr "View Country"
+
+#: .\cms_master\views.py:127
+msgid "Edit_Country"
+msgstr "Edit Country"
+
+#: .\cms_master\views.py:129
+msgid "Master_Edit_Country_Title"
+msgstr "Master : Edit Country"
+
+#: .\cms_master\views.py:139
+msgid "Master_Add_Country_Title"
+msgstr "Master : Add Country"
+
+#: .\cms_master\views.py:173 .\cms_master\views.py:177
+#: .\cms_master\views.py:188 .\cms_master\views.py:192
+#: .\cms_master\views.py:600 .\cms_master\views.py:602
+msgid "Master_Country"
+msgstr "Master : Country"
+
+#: .\cms_master\views.py:173
+msgid "New_Country_Saved_Successfully"
+msgstr "New country saved successfully"
+
+#: .\cms_master\views.py:177 .\cms_master\views.py:192
+msgid "Country_Already_Exists"
+msgstr "Country already exists"
+
+#: .\cms_master\views.py:188
+msgid "Edit_Country_Saved_Successfully"
+msgstr "Edit country saved successfully"
+
+#: .\cms_master\views.py:210 .\cms_master\views.py:312
+#: .\cms_master\views.py:322
+msgid "State"
+msgstr "State"
+
+#: .\cms_master\views.py:216
+msgid "Add_State"
+msgstr "Add State"
+
+#: .\cms_master\views.py:273
+msgid "View_State"
+msgstr "View State"
+
+#: .\cms_master\views.py:300 .\cms_master\views.py:362
+#: .\cms_master\views.py:366 .\cms_master\views.py:378
+#: .\cms_master\views.py:382 .\cms_master\views.py:613
+#: .\cms_master\views.py:615
+msgid "Master_State"
+msgstr "Master : State"
+
+#: .\cms_master\views.py:300
+msgid "State_Id_Invalid"
+msgstr "State id invalid"
+
+#: .\cms_master\views.py:313
+msgid "Edit_State"
+msgstr "Edit State"
+
+#: .\cms_master\views.py:315
+msgid "Master_Edit_State_Title"
+msgstr "Master : Edit State"
+
+#: .\cms_master\views.py:323
+msgid "Add State"
+msgstr "Add State"
+
+#: .\cms_master\views.py:325
+msgid "Master_Add_State_Title"
+msgstr "Master : Add State"
+
+#: .\cms_master\views.py:362
+msgid "New_State_Saved_Successfully"
+msgstr "New state saved successfully"
+
+#: .\cms_master\views.py:366 .\cms_master\views.py:382
+msgid "State_Already_Exists"
+msgstr "State already exists"
+
+#: .\cms_master\views.py:378
+msgid "Edit_State_Saved_Successfully"
+msgstr "Edit state saved successfully"
+
+#: .\cms_master\views.py:400 .\cms_master\views.py:482
+#: .\cms_master\views.py:492
+msgid "Language"
+msgstr "Language"
+
+#: .\cms_master\views.py:402
+msgid "Master_Language_Title"
+msgstr "Master : Language"
+
+#: .\cms_master\views.py:406 .\cms_master\views.py:493
+msgid "Add_Language"
+msgstr "Add Language"
+
+#: .\cms_master\views.py:465
+msgid "View_Language"
+msgstr "View Language"
+
+#: .\cms_master\views.py:483
+msgid "Edit Language"
+msgstr "Edit Language"
+
+#: .\cms_master\views.py:485
+msgid "Master_Edit_Language_Title"
+msgstr "Master : Edit Language"
+
+#: .\cms_master\views.py:495
+msgid "Master_Add_Language_Title"
+msgstr "Master : Add Language"
+
+#: .\cms_master\views.py:513 .\cms_master\views.py:531
+#: .\cms_master\views.py:562 .\cms_master\views.py:564
+msgid "Master_Language"
+msgstr "Master : Langauge"
+
+#: .\cms_master\views.py:513
+msgid "New_Language_Saved_Successfully"
+msgstr "New langauge saved successfully"
+
+#: .\cms_master\views.py:517 .\cms_master\views.py:535
+msgid "Language_Already_Exists"
+msgstr "Langauge already exists"
+
+#: .\cms_master\views.py:531
+msgid "Edit_Language_Saved_Successfully"
+msgstr "Edit Language saved successfully"
+
+#: .\cms_master\views.py:562
+msgid "Language_Edit_Successfully"
+msgstr "Edit langauge successfully"
+
+#: .\cms_master\views.py:564
+msgid "Language_Not_Edit_Successfully"
+msgstr "Langauge not edit successfully"
+
+#: .\cms_master\views.py:574 .\cms_master\views.py:576
+msgid "Master_Group"
+msgstr "Master : Group"
+
+#: .\cms_master\views.py:574
+msgid "Group_Edit_Successfully"
+msgstr "Group edit successfully"
+
+#: .\cms_master\views.py:576
+msgid "Group_Not_Edit_Successfully"
+msgstr "Group not edit successfully"
+
+#: .\cms_master\views.py:587 .\cms_master\views.py:589
+msgid "Master_User"
+msgstr "Master : User"
+
+#: .\cms_master\views.py:587
+msgid "User_Edit_Successfully"
+msgstr "User edit successfully"
+
+#: .\cms_master\views.py:589
+msgid "User_Not_Edit_Successfully"
+msgstr "User not edit successfully"
+
+#: .\cms_master\views.py:600
+msgid "Country_Edit_Successfully"
+msgstr "Country edit successfully"
+
+#: .\cms_master\views.py:602
+msgid "Country_Not_Edit_Successfully"
+msgstr "Country not edit successfully"
+
+#: .\cms_master\views.py:613
+msgid "State_Edit_Successfully"
+msgstr "State edit successfully"
+
+#: .\cms_master\views.py:615
+msgid "State_Not_Edit_Successfully"
+msgstr "State not edit successfully"

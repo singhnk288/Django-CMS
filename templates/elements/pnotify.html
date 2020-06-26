@@ -1,0 +1,11 @@
+<script>   
+    {% if pnotify %} 
+        {% for key,notify in pnotify.items %}              
+            new PNotify({
+                    title: '{{ notify.title }}',
+                    text: '{{ notify.message }}',
+                    addclass: ' bg-{{ notify.type }}'                    
+                });                   
+        {% endfor %}
+    {% endif %}
+</script>

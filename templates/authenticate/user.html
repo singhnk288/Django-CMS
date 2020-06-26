@@ -1,0 +1,97 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+<!-- Content area -->
+<div class="content"> 
+        <div class="row background-padding-filter-margin before-form-border">    
+            <div class="col-md-12 background-padding-filter">
+                <!-- Basic layout-->
+                <form action="{% url 'View_User' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{% trans "Search" %}</label>
+                            <input type="text" class="form-control" placeholder="{% trans "Search" %}" name="search" value="{% if filter_form.name %}{{ filter_form.name }}{% endif %}">
+                        </div>									                            
+                    </div>
+                    <div class="col-md-2 margin-top-filter">
+                        <button type="submit" class="btn btn-primary" name="filter" value="Filter">{% trans "Filter" %}</button>
+                        <button type="submit" class="btn btn-success" name="reset" value="Reset">{% trans "Reset" %}</button>
+                    </div>
+                </form>
+                <!-- /basic layout -->
+            </div>
+        </div>     
+             
+    {% include '../elements/record_listing.html' %} 
+
+    <!-- Highlighting rows and columns -->
+    <div class="panel panel-flat side-margin-1">   
+                 
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    {% comment %} header_title : Title of Text , sorting : table column name pass , order : asc , desc current applied {% endcomment %}
+                    <th>{% include "../elements/sorting.html" with header_title="Username" sorting="username" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Group" sorting="groups" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="First Name" sorting="first_name" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Last Name" sorting="last_name" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Email" sorting="email" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Status" sorting="is_active" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Last Login" sorting="last_login" %}</th>
+                    <th class="text-center">{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>                      
+                {% if results %}
+                    {% for result in results %}
+                    <tr>                    
+                        <td>{{ forloop.counter }}</td>                    
+                        <td>{% if result.username %} {{result.username}} {% endif %}</td> 
+                        <td>{% if result.groups.all.0.name %} {{result.groups.all.0.name}}{% else %}Na{% endif %}</td>
+                        <td>{% if result.first_name %} {{result.first_name}} {% endif %}</td> 
+                        <td>{% if result.last_name %} {{result.last_name}} {% endif %}</td> 
+                        <td>{% if result.email %} {{result.email}} {% endif %}</td>                         
+                        {% if result.is_active %}
+                            <td><span class="label label-success">{% trans "Enable" %}</span></td>
+                        {% else %}
+                            <td><span class="label label-warning">{% trans "Disable" %}</span></td>
+                        {% endif %}
+                        <td>{% if result.last_login %} {{result.last_login}} {% else %}{{'NA'}}{% endif %}</td>
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="{% url 'Edit_User' result.id %}"><i class="far fa-edit"></i> {% trans "Edit" %}</a></li>
+                                        {% if result.is_active %}
+                                            <li><a href="{% url 'Change_Status_Account' 'user' result.id False %}"><i class="fas fa-ban"></i> {% trans "Disable" %}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'Change_Status_Account' 'user' result.id True %}"><i class="far fa-check-circle"></i> {% trans "Enable" %}</a></li>
+                                        {% endif %}                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>                    
+                    {% endfor %}                                    
+                {% else %}
+                    <tr>
+                        <td colspan="8"> {% trans "No Record Found" %}</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>  
+        {% include '../elements/pagination.html' %}        
+    </div>
+    <!-- /highlighting rows and columns -->
+</div>
+<script>
+
+</script>
+<!-- /content area -->
+{% endblock content %}
+

@@ -1,0 +1,58 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+{% load custom_filter_tag %}
+<!-- Content area -->
+<div class="content">   
+  <div class="row background-padding-filter-margin before-form-border">       
+  <legend class="text-bold background-padding-filter" style="margin-bottom:unset;">{% trans "FILL_COUNTRY_WITH_ALL_AVAILBLE_LANGUAGE" %}</legend>     
+        <form method="POST" enctype="multipart/form-data" action="{% url 'Add_Country' %}{{country_mapping_id}}" id="form-validate">
+            {% csrf_token %} 
+            {% if not country_obj %}                                             
+                {% for language_obj in language_list %}
+                    {% if forloop.counter == 1 %}<div class="col-md-12 background-padding-filter padding-bottom-clear">{% endif %}
+                    {% if forloop.counter > 2 and forloop.counter|divisibleby:2 %} 
+                        {% elif forloop.counter > 2 %}
+                        <div class="col-md-12 background-padding-filter padding-top-bottom-clear">
+                        {% endif %}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Country-label">{% trans "Country" %} ({{language_obj.code}}) <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="country_{{ language_obj.code }}" name="country[{{language_obj.code}}]" value="{% if country_dict|get_item_value:language_obj.code %}{{country_dict|get_item_value:language_obj.code}}{% elif country_obj.country|get_item_value:language_obj.code %}{{country_obj.country|get_item_value:language_obj.code}}{% endif %}"
+                            data-rule-requiredMin2Max50="true" aria-describedby="CountryHelp">        
+                        </div>
+                    </div> 
+                    {% if forloop.counter > 1 and forloop.counter|divisibleby:2 %}
+                        </div>                             
+                    {% endif %}                                        
+                {% endfor %}
+            {% else %}
+                {% for country_iterate in country_obj %}
+                    {% if forloop.counter == 1 %}<div class="col-md-12 background-padding-filter padding-bottom-clear">{% endif %}
+                    {% if forloop.counter > 2 and forloop.counter|divisibleby:2 %} 
+                        {% elif forloop.counter > 2 %}
+                        <div class="col-md-12 background-padding-filter padding-top-bottom-clear">
+                        {% endif %}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Country-label">{% trans "Country" %} ({{country_iterate.langauge.code}}) <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="country_{{ language_obj.code }}" name="country[{{country_iterate.langauge.code}}]" value="{% if country_iterate.country %}{{country_iterate.country}}{% elif country_iterate.langauge.code %}{{country_iterate.langauge.code}}{% endif %}"
+                            data-rule-requiredMin2Max50="true" aria-describedby="CountryHelp">        
+                        </div>
+                    </div> 
+                    {% if forloop.counter > 1 and forloop.counter|divisibleby:2 %}
+                        </div>                             
+                    {% endif %}
+                {% endfor %}
+            {% endif %}  
+            <div class="col-md-12 background-padding-filter padding-top-clear padding-right-2">
+                <button type="submit" class="btn bg-teal-400 btn-labeled float-right">
+                    <b><i class="icon-reading"></i></b> {% trans "Save" %}
+                </button> 
+            </div>            
+        </form>       
+   </div>
+</div>
+<!-- /content area -->
+{% endblock content %}
+

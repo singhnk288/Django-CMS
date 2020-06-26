@@ -1,0 +1,35 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+<!-- Content area -->
+<div class="content">   
+  <div class="row background-padding-filter-margin before-form-border">            
+        <form method="POST" action="{% url 'Add_Language' %}{{ language_obj.id }}" id="form-validate">
+            {% csrf_token %}
+            <div class="col-md-12 background-padding-filter"> 
+                <div class="col-md-8">          
+                    <div class="form-group">
+                        <label for="language-label">{% trans "Language" %} <span class="red-star">*</span></label>
+                        <input type="text" class="form-control" id="language" name="language" value="{% if language %}{{ language }}{% elif language_obj.name %}{{ language_obj.name }}{% endif %}"
+                        data-rule-requiredMin2Max20="true" aria-describedby="languageHelp" placeholder="{% trans "Enter Language" %}">        
+                    </div>
+                </div>
+                <div class="col-md-4">          
+                    <div class="form-group">
+                        <label for="language-code-label">{% trans "Language Code" %} <span class="red-star">*</span></label>
+                        <input type="text" class="form-control" id="language_code" name="language_code" value="{% if language_code %}{{ language_code }}{% elif language_obj.code %}{{ language_obj.code }}{% endif %}"
+                        data-rule-requiredMin2Max3="true" aria-describedby="language_codeHelp" placeholder="{% trans "Enter Language Code" %}">        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn bg-teal-400 btn-labeled float-right">
+                        <b><i class="icon-reading"></i></b> {% trans "Save" %}
+                    </button> 
+                </div>
+            </div>
+        </form>       
+   </div>
+</div>
+<!-- /content area -->
+{% endblock content %}
+

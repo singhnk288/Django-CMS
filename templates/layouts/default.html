@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+    <head>	
+        {% load i18n %}
+        <title>{% trans "Welcome to RecallInfo" %}</title>
+        {% load static %}
+        <link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>        
+        <link rel="stylesheet" href='{% static "css/core.css" %}'>
+        <link rel="stylesheet" href='{% static "css/components.css" %}'>
+        <link rel="stylesheet" href='{% static "css/colors.css" %}'>	
+        <link rel="stylesheet" href='{% static "css/icons/icomoon/styles.css" %}'>	
+        <link rel="stylesheet" href='{% static "fontawesome-5_13/css/all.min.css" %}'>        
+        <link rel="stylesheet" href='{% static "css/style.css" %}'>        
+    </head>
+    <body class="navbar-bottom">
+        <!-- Page header -->
+        <div class="page-header page-header-inverse"> 
+            {% url 'Account_Login' as login_account_url %}
+            {% url 'Login' as login_url %}
+                {% if request.path != login_account_url and request.path != login_url %} 
+                    {% include "../elements/header.html" %}
+                {% endif %}              
+        </div>
+        <!-- /page header -->
+        <!-- Page container -->        
+        <div class="page-container">         
+            <!-- Page content -->
+            <div class="page-content"> 
+                {% if request.path != login_account_url and request.path != login_url %}
+                    {% include "../elements/sidebar.html" %} 
+                {% endif %}                              
+                <!-- Main content -->
+                <div class="content-wrapper">
+                    {% if request.path != login_account_url and  request.path != login_url %}
+                        {% include "../elements/breadcrumb.html" %} 
+                    {% endif %}    
+                    {% block content %}
+                      {% endblock content %}
+                </div>
+            </div>            
+        </div>
+        {% comment %} Js File Included {% endcomment %}
+        <script src="{% static 'js/plugins/loaders/pace.min.js' %}"></script>
+        <script src="{% static 'js/core/libraries/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/libraries/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/plugins/loaders/blockui.min.js' %}"></script>
+        <script src="{% static 'js/plugins/ui/nicescroll.min.js' %}"></script>
+        <script src="{% static 'js/plugins/ui/drilldown.js' %}"></script>
+        <script src="{% static 'js/plugins/ui/fab.min.js' %}"></script>
+        <script src="{% static 'js/plugins/visualization/d3/d3.min.js' %}"></script>
+        <script src="{% static 'js/plugins/visualization/d3/d3_tooltip.js' %}"></script>
+        <script src="{% static 'js/plugins/forms/styling/switchery.min.js' %}"></script>
+        <script src="{% static 'js/plugins/forms/styling/uniform.min.js' %}"></script>
+        <script src="{% static 'js/plugins/forms/selects/bootstrap_multiselect.js' %}"></script>
+        <script src="{% static 'js/plugins/ui/moment/moment.min.js' %}"></script>
+        <script src="{% static 'js/plugins/pickers/daterangepicker.js' %}"></script>
+        <script src="{% static 'js/plugins/ui/prism.min.js' %}"></script>        
+        <script src="{% static 'js/core/app.js' %}"></script>                     
+        <script src="{% static 'js/plugins/tables/datatables/datatables.min.js' %}"></script>
+        <script src="{% static 'js/plugins/forms/selects/select2.min.js' %}"></script>
+        <script src="{% static 'js/pages/datatables_advanced.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.js' %}"></script>
+        <script src="{% static 'js/validation.js' %}"></script>
+        <script src="{% static 'js/pnotify.min.js' %}"></script>
+        <script src="{% static 'js/core/libraries/jquery_ui/interactions.min.js' %}"></script> 
+        <script src="{% static 'js/pages/form_select2.js' %}"></script>   
+        <script src="{% static 'fontawesome-5_13/js/all.min.js' %}"></script>  
+        {% comment %} Include listbox js  {% endcomment %}
+        {% url 'Edit_Permission' group_obj.id as edit_permission_url %}        
+        {% if request.path == edit_permission_url %}
+            <script src="{% static 'js/plugins/forms/inputs/duallistbox.min.js' %}"></script>
+            <script src="{% static 'js/duallistbox.js' %}"></script>
+        {% endif %}
+        <script src="{% static 'js/custom.js' %}"></script>        
+        {% include "../elements/pnotify.html" %}         
+    </body>    
+</html>

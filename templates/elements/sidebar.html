@@ -1,0 +1,87 @@
+{% comment %} Initialization variable for all created function or 
+page and then matched for change dropdown active {% endcomment %}
+{% comment %} # Language Master  {% endcomment %}
+{% load i18n %}
+{%  url 'View_Language' as view_language %}
+{%  url 'Add_Language' as add_language %}
+{%  url 'Edit_Language' language_obj.id as edit_language %}
+
+{% comment %} Country Master {% endcomment %}
+{%  url 'View_Country' as view_country %}
+{%  url 'Add_Country' as add_country %}
+{%  url 'Edit_Country' as edit_country %}
+
+{% comment %} State Master {% endcomment %}
+{%  url 'View_State' as view_state %}
+{%  url 'Add_State' as add_state %}
+{%  url 'Edit_State' as edit_state %}
+
+{% comment %} Authenticate Master {% endcomment %}
+{% comment %} User Master {% endcomment %}
+{%  url 'View_User' as view_user %}
+{%  url 'Add_User' as add_user %}
+{%  url 'Edit_User' user_obj.id as edit_user %}
+
+{% comment %} Group Master {% endcomment %}
+{%  url 'View_Group' as view_group %}
+{%  url 'Add_Group' as add_group %}
+{%  url 'Edit_Group' as edit_group %}
+
+{{ edit_language }}
+<div class="sidebar sidebar-main sidebar-default">
+    <div class="sidebar-content">
+        <!-- Main navigation -->
+        <div class="sidebar-category sidebar-category-visible">              
+            <div class="category-content no-padding">
+                <ul class="navigation navigation-main navigation-accordion">                    
+                    <li style="margin-top: 5%;"><a href=""><i class="icon-home4"></i> <span>{% trans "Dashboard" %}</span></a></li>
+                    {% if perms.cms_master.view_language or perms.cms_master.view_country or perms.cms_master.view_state%}
+                    <li class="{% if model_app_name == 'cms_master' %}active{% endif %}">
+                        <a href=""><i class="icon-stack2"></i> <span>{% trans "Masters" %}</span></a>
+                        <ul>                        
+                            {% if perms.cms_master.view_language %}
+                                <li class="{% if request.path == view_language or request.path == add_language or request.path == edit_language %}active{% endif %}">
+                                    <a href="{% url 'View_Language' %}">{% trans "Language" %}</a>
+                                </li> 
+                            {% endif %}
+                            {% if perms.cms_master.view_country %}
+                                <li class="{% if request.path == view_country or request.path == add_country or request.path == edit_country %}active{% endif %}">
+                                    <a href="{% url 'View_Country' %}">{% trans "Country" %}</a>
+                                </li>
+                            {% endif %}    
+                            {% if perms.cms_master.view_state %}
+                                <li class="{% if request.path == view_state or request.path == add_state or request.path == edit_state %}active{% endif %}">
+                                    <a href="{% url 'View_State' %}">{% trans "State" %}</a>
+                                </li>
+                            {% endif %}
+                            {% comment %} <li class="{% if request.path == view_city or request.path == add_city or request.path == edit_city %}active{% endif %}">
+                                <a href="{% url 'View_City' %}">{% trans "City" %}</a>
+                            </li> {% endcomment %}                                                       
+                        </ul>
+                    </li>
+                    {% endif %}                    
+                    {% comment %} <li><a href="changelog.html"><i class="icon-list-unordered"></i> <span>{% trans "Changelog" %}</span></a></li>                                         {% endcomment %}
+                    <!-- /layout -->   
+                    {% if perms.auth.view_group or perms.auth.view_user %}                                     
+                    <li>
+                        <a><i class="icon-people"></i> <span>{% trans "Authenticate" %}</span></a>                        
+                        <ul>
+                            {% if perms.auth.view_group %}
+                            <li class="{% if request.path == view_group or request.path == add_group or request.path == edit_group %}active{% endif %}" >
+                            <a href="{% url 'View_Group' %}">{% trans "Group" %}</a></li>
+                            {% endif %}  
+                            {% if perms.auth.view_user %}
+                            <li class="{% if request.path == view_user or request.path == add_user or request.path == edit_user %}active{% endif %}" ><a href="{% url 'View_User' %}">{% trans "User" %}</a></li>
+                            {% endif %}  
+                            {% comment %} <li class="" ><a href="{% url 'View_Language' %}">Permission</a></li> {% endcomment %}                            
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- /main navigation -->
+
+    </div>
+</div>
+<!-- /main sidebar -->

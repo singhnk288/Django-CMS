@@ -1,0 +1,26 @@
+{% comment %} Number Of Record listing in per page per request {% endcomment %}
+<div class="width-list-row side-margin-1" >  
+    <select class="" id="record-listing" name="record-listing" onchange="record_listing(this)">
+        <option value="10" {% if not listing_count or listing_count == '10' %} selected="true" {% endif %}>10</option>
+        <option value="20" {% if listing_count == '20' %} selected="true" {% endif %}>20</option>
+        <option value="50" {% if listing_count == '50' %} selected="true" {% endif %}>50</option>
+        <option value="100" {% if listing_count == '100' %} selected="true" {% endif %}>100</option>
+    </select>
+</div> 
+<script>
+    function record_listing(element){
+        var listing_value = $(element).val();        
+        $.ajax({
+            url: '{{ajax_begining_path}}ajax/change_listing_count/',
+            data: {
+            'listing_value': listing_value
+            },
+            dataType: 'json',
+            success: function (data) {
+            if (data.is_status) {
+                window.location = window.location.pathname;
+            }
+            }
+        });
+    }
+</script>

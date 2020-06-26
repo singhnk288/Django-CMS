@@ -1,0 +1,105 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+{% load custom_filter_tag %}
+<!-- Content area -->
+<div class="content"> 
+        <div class="row background-padding-filter-margin before-form-border">    
+            <div class="col-md-12 background-padding-filter">
+                <!-- Basic layout-->
+                <form action="{% url 'View_State' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{% trans "Search" %}</label>
+                            <input type="text" class="form-control" placeholder="{% trans "Search" %}" name="search" value="{% if filter_form.name %}{{filter_form.name}}{% endif %}">
+                        </div>									                            
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{% trans "Country" %}</label>
+                            <select class="select-search" name="country_id" data-rule-mandatory="true">
+                                <option value="">{% trans "Select_any_country" %}</option>                    
+                                {% if country_obj %}
+                                    {% for country_item in country_obj %}
+                                        <option value="{{country_item.country_foriegn_id}}" {% if filter_form.country_id and filter_form.country_id|to_int == country_item.country_foriegn_id %}selected="selected"{% endif %}>{% if country_item.country %}{{country_item.country}}{% endif %}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>									                            
+                    </div>
+                    <div class="col-md-2 margin-top-filter">
+                        <button type="submit" class="btn btn-primary" name="filter" value="Filter">{% trans "Filter" %}</button>
+                        <button type="submit" class="btn btn-success" name="reset" value="Reset">{% trans "Reset" %}</button>
+                    </div>
+                </form>
+                <!-- /basic layout -->
+            </div>
+        </div>     
+             
+    {% include '../elements/record_listing.html' %} 
+
+    <!-- Highlighting rows and columns -->
+    <div class="panel panel-flat side-margin-1">            
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>{% trans "S.No" %}</th>
+                    <th>{% include "../elements/sorting.html" with header_title="Country" sorting="state_foriegn__country_id" %}</th> 
+                    {% comment %} header_title : Title of Text , sorting : table column name pass , order : asc , desc current applied {% endcomment %}                                                          
+                    <th>{% include "../elements/sorting.html" with header_title="State" sorting="state" %}</th> 
+                    {% comment %} <th>{% include "../elements/sorting.html" with header_title="Code" sorting="code" %}</th> {% endcomment %}
+                    <th>{% include "../elements/sorting.html" with header_title="Status" sorting="state_foriegn__status" %}</th>                    
+                    <th class="text-center">{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>             
+            {% get_current_language as LANGUAGE_CODE %}         
+                {% if results %}
+                    {% for result in results %}
+                    <tr>                    
+                        <td>{{ forloop.counter }}</td> 
+                        <td>{{result.state_foriegn.country_id|get_country_name_by_id}}</td>              
+                        <td>{% if result.state %} {{result.state}} {% else %}Na{% endif %}</td> 
+                        {% comment %} <td>{% if LANGUAGE_CODE %} {{LANGUAGE_CODE}} {% else %}Na{% endif %}</td> {% endcomment %}
+                        {% if result.state_foriegn.status %}
+                            <td><span class="label label-success">{% trans "Enable" %}</span></td>
+                        {% else %}
+                            <td><span class="label label-warning">{% trans "Disable" %}</span></td>
+                        {% endif %}                                           
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="{% url 'Edit_State' result.state_foriegn.id %}"><i class="far fa-edit"></i> {% trans "Edit" %}</a></li>
+                                        {% if result.state_foriegn.status %}
+                                            <li><a href="{% url 'Change_Status' 'state' result.state_foriegn.id False %}"><i class="fas fa-ban"></i> {% trans "Disable" %}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'Change_Status' 'state' result.state_foriegn.id True %}"><i class="far fa-check-circle"></i> {% trans "Enable" %}</a></li>
+                                        {% endif %}                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>                    
+                    {% endfor %}                                    
+                {% else %}
+                    <tr>
+                        <td colspan="5"> {% trans "No Record Found" %}</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>  
+        {% include '../elements/pagination.html' %}        
+    </div>
+    <!-- /highlighting rows and columns -->
+</div>
+<script>
+
+</script>
+<!-- /content area -->
+{% endblock content %}
+

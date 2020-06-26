@@ -1,0 +1,77 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+{% load custom_filter_tag %}
+<!-- Content area -->
+<div class="content">   
+  <div class="row background-padding-filter-margin before-form-border">       
+  <legend class="text-bold background-padding-filter" style="margin-bottom:unset;">{% trans "FILL_STATE_WITH_ALL_AVAILBLE_LANGUAGE" %}</legend>     
+        <form method="POST" enctype="multipart/form-data" action="{% url 'Add_State' %}{{ state_obj.id }}" id="form-validate">
+            {% comment %} Country Dropdown {% endcomment %}
+            <div class = "col-md-12 padding-left-right-2 padding-top-1">
+            <div class="form-group">
+                <label>{% trans "Country" %}</label>
+                <select class="select-search" name="country_id" data-rule-mandatory="true">
+                    {% comment %} <optgroup label=""> {% endcomment %}
+                    <option value="">{% trans "Select_any_country" %}</option>
+                    {% get_current_language as LANGUAGE_CODE %} 
+                        {% if country_obj %}
+                            {% for country_item in country_obj %}
+                                <option value="{{country_item.country_foriegn_id}}" {% if country_id and country_id ==  country_item.country_foriegn_id %}selected="selected"{% elif state_obj.country_id and state_obj.country_id ==  country_item.country_foriegn_id %}selected="selected"{% endif %}>{% if country_item.country %}{{country_item.country}}{% endif %}</option>
+                            {% endfor %}
+                        {% endif %}                                                  
+                </select>
+            </div>
+            </div>
+
+            {% csrf_token %}   
+            {% if not state_mapping_obj %}                     
+                {% for language_obj in language_list %}
+                    {% if forloop.counter == 1 %}<div class="col-md-12 padding-bottom-clear">{% endif %}
+                    {% if forloop.counter > 2 and forloop.counter|divisibleby:2 %} 
+                        {% elif forloop.counter > 2 %}
+                        <div class="col-md-12 background-padding-filter padding-top-bottom-clear">
+                        {% endif %}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="State-label">{% trans "State" %} ({{language_obj.code}}) <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="state_{{ language_obj.code }}" name="state[{{language_obj.code}}]" value="{% if state_dict|get_item_value:language_obj.code %}{{state_dict|get_item_value:language_obj.code}}
+                            {% elif state_obj.state|get_item_value:language_obj.code %}{{state_obj.state|get_item_value:language_obj.code}}{% endif %}"
+                            data-rule-requiredMin2Max50="true" aria-describedby="StateHelp">        
+                        </div>
+                    </div> 
+                    {% if forloop.counter > 1 and forloop.counter|divisibleby:2 %}
+                        </div>                             
+                    {% endif %}                                        
+                {% endfor %}            
+            {% else %}
+                {% for state_mapping in state_mapping_obj %}
+                        {% if forloop.counter == 1 %}<div class="col-md-12 padding-bottom-clear">{% endif %}
+                        {% if forloop.counter > 2 and forloop.counter|divisibleby:2 %} 
+                            {% elif forloop.counter > 2 %}
+                            <div class="col-md-12 background-padding-filter padding-top-bottom-clear">
+                            {% endif %}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="State-label">{% trans "State" %} ({{state_mapping.state_langauge.code}}) <span class="red-star">*</span></label>
+                                <input type="text" class="form-control" id="state_{{ state_mapping.state_langauge.code}}" name="state[{{state_mapping.state_langauge.code}}]" value="{% if state_dict|get_item_value:language_obj.code %}{{state_dict|get_item_value:language_obj.code}}
+                                {% elif state_mapping.state %}{{state_mapping.state}}{% endif %}"
+                                data-rule-requiredMin2Max50="true" aria-describedby="StateHelp">        
+                            </div>
+                        </div> 
+                        {% if forloop.counter > 1 and forloop.counter|divisibleby:2 %}
+                            </div>                             
+                        {% endif %}                                        
+                    {% endfor %} 
+            {% endif %}
+            <div class="col-md-12 background-padding-filter padding-top-clear padding-right-2">
+                <button type="submit" class="btn bg-teal-400 btn-labeled float-right">
+                    <b><i class="icon-reading"></i></b> {% trans "Save" %}
+                </button> 
+            </div>            
+        </form>       
+   </div>
+</div>
+<!-- /content area -->
+{% endblock content %}
+

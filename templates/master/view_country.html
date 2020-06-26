@@ -1,0 +1,90 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+{% load custom_filter_tag %}
+<!-- Content area -->
+<div class="content"> 
+        <div class="row background-padding-filter-margin before-form-border">    
+            <div class="col-md-12 background-padding-filter">
+                <!-- Basic layout-->
+                <form action="{% url 'View_Country' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{% trans "Search" %}</label>
+                            <input type="text" class="form-control" placeholder="{% trans "Search" %}" name="search" value="{% if filter_form.name %}{{filter_form.name}}{% endif %}">
+                        </div>									                            
+                    </div>
+                    <div class="col-md-2 margin-top-filter">
+                        <button type="submit" class="btn btn-primary" name="filter" value="Filter">{% trans "Filter" %}</button>
+                        <button type="submit" class="btn btn-success" name="reset" value="Reset">{% trans "Reset" %}</button>
+                    </div>
+                </form>
+                <!-- /basic layout -->
+            </div>
+        </div>     
+             
+    {% include '../elements/record_listing.html' %} 
+
+    <!-- Highlighting rows and columns -->
+    <div class="panel panel-flat side-margin-1">            
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>{% trans "S.No" %}</th>
+                    {% comment %} header_title : Title of Text , sorting : table column name pass , order : asc , desc current applied {% endcomment %}                                                          
+                    <th>{% include "../elements/sorting.html" with header_title="Country" sorting="country" %}</th> 
+                    {% comment %} <th>{% include "../elements/sorting.html" with header_title="Code" sorting="code" %}</th> {% endcomment %}
+                    <th>{% include "../elements/sorting.html" with header_title="Status" sorting="country_foriegn__status" %}</th>                    
+                    <th class="text-center">{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>             
+            {% get_current_language as LANGUAGE_CODE %}         
+                {% if results %}
+                    {% for result in results %}  
+                    <tr>                    
+                        <td>{{ forloop.counter }}</td>               
+                        <td>{% if result.country %} {{result.country}} {% else %}Na{% endif %}</td> 
+                        {% comment %} <td>{% if LANGUAGE_CODE %} {{LANGUAGE_CODE}} {% else %}Na{% endif %}</td> {% endcomment %}
+                        {% if result.country_foriegn.status %}
+                            <td><span class="label label-success">{% trans "Enable" %}</span></td>
+                        {% else %}
+                            <td><span class="label label-warning">{% trans "Disable" %}</span></td>
+                        {% endif %}                                           
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="{% url 'Edit_Country' result.country_foriegn.id %}"><i class="far fa-edit"></i> {% trans "Edit" %}</a></li>
+                                        {% if result.country_foriegn.status %}
+                                            <li><a href="{% url 'Change_Status' 'country' result.country_foriegn.id False %}"><i class="fas fa-ban"></i> {% trans "Disable" %}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'Change_Status' 'country' result.country_foriegn.id True %}"><i class="far fa-check-circle"></i> {% trans "Enable" %}</a></li>
+                                        {% endif %}                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>                    
+                    {% endfor %}                                    
+                {% else %}
+                    <tr>
+                        <td colspan="5"> {% trans "No Record Found" %}</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>  
+        {% include '../elements/pagination.html' %}        
+    </div>
+    <!-- /highlighting rows and columns -->
+</div>
+<script>
+
+</script>
+<!-- /content area -->
+{% endblock content %}
+

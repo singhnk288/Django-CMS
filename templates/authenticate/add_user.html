@@ -1,0 +1,89 @@
+{% extends '../layouts/default.html' %}
+{% block content %}
+{% load i18n %}
+<!-- Content area -->
+<div class="content">   
+  <div class="row background-padding-filter-margin before-form-border">            
+        <form method="POST" action="{% url 'Add_User' %}{{ user_obj.id }}" id="form-validate">
+            {% csrf_token %}
+            <div class="col-md-12 background-padding-filter"> 
+                <div class="col-md-12 padding-top-1">
+                    <div class="col-md-12">          
+                        <div class="form-group">                                                
+                            <label for="group_name-label">{% trans "Group" %} <span class="red-star">*</span></label>
+                            <select data-placeholder="{% trans "Select a Group" %}..." class="select" 
+                            {% if current_user_allow_permission %}disabled{% endif %} data-rule-mandatory = "true" name="group_name">
+                                <option value=""></option>
+                                {% for groups in group_obj %}                               
+                                    <option value="{{groups.id}}" {% if user_group_id and groups.id|stringformat:"s" == user_group_id|stringformat:"s" %}selected="selected"{% endif %}>{{groups.name}}</option>   
+                                {% endfor %}                                                             
+                            </select>                            
+                        </div>
+                        {% if current_user_allow_permission %}
+                            <input type="hidden" name="group_name" id="group_name" value="{{user_group_id}}" />
+                        {% endif %}
+                    </div>                   
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-6">          
+                        <div class="form-group">
+                            <label for="first_name-label">{% trans "First Name" %} <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="{% if post_first_name %}{{ post_first_name }}{% elif user_obj.first_name %}{{ user_obj.first_name }}{% endif %}"
+                            data-rule-requiredMin2Max20="true" aria-describedby="first_nameHelp" placeholder="{% trans "Enter First Name" %}">        
+                        </div>
+                    </div>
+                    <div class="col-md-6">          
+                        <div class="form-group">
+                            <label for="lastname-label">{% trans "Last Name" %} <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="lastname" name="last_name" value="{% if post_last_name %}{{ post_last_name }}{% elif user_obj.last_name %}{{ user_obj.last_name }}{% endif %}"
+                            data-rule-requiredMin2Max20="true" aria-describedby="lastnameHelp" placeholder="{% trans "Enter Last Name" %}">        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">          
+                        <div class="form-group">
+                            <label for="username-label">{% trans "Username" %} <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="username" name="username" value="{% if post_username %}{{ post_username }}{% elif user_obj.username %}{{ user_obj.username }}{% endif %}"
+                            data-rule-requiredMin2Max20="true" aria-describedby="usernameHelp" placeholder="{% trans "Enter username" %}">        
+                        </div>
+                    </div>
+                    <div class="col-md-6">          
+                        <div class="form-group">
+                            <label for="email-label">{% trans "Email" %} <span class="red-star">*</span></label>
+                            <input type="text" class="form-control" id="email" {% if user_obj.id %}readonly{% endif %} name="email" value="{% if post_email %}{{ post_email }}{% elif user_obj.email %}{{ user_obj.email }}{% endif %}"
+                            data-rule-email="true" aria-describedby="emailHelp" placeholder="{% trans "Enter Email" %}">        
+                        </div>
+                    </div>
+                </div>
+                {% if not current_user_allow_permission %}
+                    <div class="col-md-12">
+                        <div class="col-md-6">          
+                            <div class="form-group">
+                                <label for="password-label">{% trans "Password" %} {% if not user_obj.id %}<span class="red-star">*</span>{% endif %}</label>
+                                <input type="password" class="form-control" id="password" name="password" value="{% if language %}{{ language }}{% elif user_obj.name %}{{ user_obj.name }}{% endif %}"
+                                {% if user_obj.id %} data-rule-notRequiredPasswd="true" {% else %} data-rule-passwd="true" {% endif %} aria-describedby="passwordHelp" title="{% trans "Password field not mandatory fill only if you want to update password" %}" placeholder="{% trans "Enter Password" %}">        
+                            </div>
+                        </div>
+                        <div class="col-md-6">          
+                            <div class="form-group">
+                                <label for="confirm-password-label">{% trans "Confirm Password" %} {% if not user_obj.id %}<span class="red-star">*</span>{% endif %}</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="{% if language %}{{ language }}{% elif user_obj.name %}{{ user_obj.name }}{% endif %}"
+                                {% if user_obj.id %} data-rule-notRequiredConfirmPasswd="true" {% else %} data-rule-confirmPasswd="true" {% endif %} placeholder="{% trans "Enter Confirm Password" %}">        
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="col-md-12">
+                    <button type="submit" class="btn bg-teal-400 btn-labeled float-right">
+                        <b><i class="icon-reading"></i></b> {% trans "Save" %}
+                    </button> 
+                </div>
+            </div>
+        </form>       
+   </div>
+</div>
+<!-- /content area -->
+{% endblock content %}
+

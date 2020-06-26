@@ -1,0 +1,93 @@
+/* .content-wrapper {
+    background: white;
+    padding: 0%;
+} */
+
+
+/* Main Content Side Margin */
+
+.side-margin-1 {
+    margin: 1%;
+}
+
+
+/* Filter btn top margin  */
+
+.margin-top-filter {
+    margin-top: 26px;
+}
+
+.background-padding-filter {
+    padding: 1%;
+    background-color: ghostwhite;    
+}
+
+.background-padding-filter-margin {
+    margin: 1%;
+}
+
+.red-star {
+    color: red;
+}
+
+.float-right {
+    float: right;
+}
+
+.offset-left-right-2 {
+    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
+}
+.width-list-row{
+    width: 10%;    
+}
+.login-screen-padding{
+    padding:10%;
+}
+.sidebar-category-visible{
+    min-height: 840px;
+}
+
+.before-form-border{
+    border : 1px solid cyan;
+}
+
+.padding-top-1{
+    padding-top: 1%;
+}
+
+.header-language-div{
+    float: right;margin-top: 12px;
+}
+
+.header-language-div .select2-container .select2-selection--single {
+    height: 30px !important;
+}
+.header-language-div .select2-selection__rendered{
+    margin-top: -2px;
+}
+.padding-top-clear{
+    padding-top: 0% !important;
+}
+.padding-bottom-clear{
+    padding-bottom: 0% !important;
+}
+.padding-top-bottom-clear{
+    padding-bottom: 0% !important;
+    padding-top: 0% !important;
+}
+.padding-right-2{
+    padding-right: 2%;
+}
+.padding-left-right-2{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.padding-top-1{
+    padding-top: 1%;
+}
+.ui-pnotify{
+    width: 25% !important;
+    /* align-content: center; */
+    right: 37.5% !important;    
+}

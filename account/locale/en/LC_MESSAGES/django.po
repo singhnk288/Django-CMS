@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-16 15:32+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\account\views.py:49 .\account\views.py:69 .\account\views.py:162
+#: .\account\views.py:172
+msgid "User"
+msgstr "User"
+
+#: .\account\views.py:49
+msgid "Logout Successfully"
+msgstr "Logout Successfully"
+
+#: .\account\views.py:68 .\account\views.py:161 .\account\views.py:171
+#: .\account\views.py:256 .\account\views.py:343
+msgid "Home"
+msgstr "Home"
+
+#: .\account\views.py:71
+msgid "Master - User"
+msgstr "Master - User"
+
+#: .\account\views.py:75 .\account\views.py:173
+msgid "Add User"
+msgstr "Add User"
+
+#: .\account\views.py:136
+msgid "View User"
+msgstr "View User"
+
+#: .\account\views.py:163
+msgid "Edit User"
+msgstr "Edit User"
+
+#: .\account\views.py:165
+msgid "Master - Edit User"
+msgstr "Master - Edit User"
+
+#: .\account\views.py:175
+msgid "Master - Add User"
+msgstr "Master - Add User"
+
+#: .\account\views.py:200 .\account\views.py:204 .\account\views.py:221
+#: .\account\views.py:231 .\account\views.py:235
+msgid "Master : User"
+msgstr "Master : User"
+
+#: .\account\views.py:200
+msgid "New User Registered Successfully"
+msgstr "New User Registered Successfully"
+
+#: .\account\views.py:204 .\account\views.py:235
+msgid "Username or Email Already Exists"
+msgstr "Username or Email Already Exists"
+
+#: .\account\views.py:221
+msgid "User id not found"
+msgstr "User id not found"
+
+#: .\account\views.py:231
+msgid "Edit User Saved Successfully"
+msgstr "Edit User Saved Successfully"
+
+#: .\account\views.py:257 .\account\views.py:344
+msgid "Group"
+msgstr "Group"
+
+#: .\account\views.py:259
+msgid "Master - Group"
+msgstr "Master - Group"
+
+#: .\account\views.py:263 .\account\views.py:345
+msgid "Add Group"
+msgstr "Add Group"
+
+#: .\account\views.py:313
+msgid "View Group"
+msgstr "View Group"
+
+#: .\account\views.py:337
+msgid "Master - Edit Group"
+msgstr "Master - Edit Group"
+
+#: .\account\views.py:347
+msgid "Master - Add Language"
+msgstr "Master - Add Language"
+
+#: .\account\views.py:363 .\account\views.py:380
+msgid "Master : Language"
+msgstr "Master : Language"
+
+#: .\account\views.py:363
+msgid "New Language Saved Successfully"
+msgstr "New Language Saved Successfully"
+
+#: .\account\views.py:367 .\account\views.py:384
+msgid "Master : Group"
+msgstr "Master : Group"
+
+#: .\account\views.py:367 .\account\views.py:368 .\account\views.py:384
+#: .\account\views.py:385
+msgid "Group Already Exists"
+msgstr "Group Already Exists"
+
+#: .\account\views.py:380
+msgid "Edit Group Saved Successfully"
+msgstr "Edit Group Saved Successfully"
+
+#: .\account\views.py:438
+msgid "Master - Edit Group Permission"
+msgstr "Master - Edit Group Permission"

@@ -1,0 +1,8 @@
+{% load i18n %}
+{% if request.GET.order and request.GET.sort and request.GET.sort == sorting and request.GET.order == 'asc' %}
+    <a href="{{ request.path }}?order=desc&sort={{sorting}}"> {% trans header_title %}  <span class="fas fa-sort-up"></span></a>
+{% elif request.GET.order and request.GET.sort and request.GET.sort == sorting and request.GET.order == 'desc'%}
+    <a href="{{ request.path }}?order=asc&sort={{sorting}}"> {% trans header_title %} <span class="fas fa-sort-down"></span></a>
+{% else %}
+    <a href="{{ request.path }}?order=asc&sort={{sorting}}"> {% trans header_title %} <span class="fa fa-sort"></span></a>
+{% endif %}
