@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auditlog',
+    # 'auditlog',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
         # Write Custom Middleware
     'djfirst.middleware.WebInitialization',
-    'auditlog.middleware.AuditlogMiddleware',
+    # 'auditlog.middleware.AuditlogMiddleware',
 ]
 
 ROOT_URLCONF = 'djfirst.urls'
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'djfirst.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'django-cms',
+        'NAME': 'django-cms2',
         'HOST': 'mongodb://neeraj:neeraj@127.0.0.1:27017/?authSource=admin',
         'USER': 'neeraj',
         'PASSWORD': 'neeraj',
@@ -142,7 +142,7 @@ STATICFILES_DIRS = [
 # Provide a lists of languages which your site supports.
 LANGUAGES = (
     ('en', _('English')),
-    #('hi', _('Hindi')),    
+    ('hi', _('Hindi')),    
 )
 
 #Global Variable Define
