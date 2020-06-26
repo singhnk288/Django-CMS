@@ -78,11 +78,11 @@ Enter Email:
 
 ![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/add_country.PNG)
 
-![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/edit_permission.PNG)
-
 ![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_country.PNG)
 
 ![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_group.PNG)
+
+![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/edit_permission.PNG)
 
 ![image](https://raw.githubusercontent.com/singhnk288/Django-CMS/master/django-screenshot/view_state_language1.PNG)
 
